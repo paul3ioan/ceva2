@@ -1,6 +1,8 @@
 {
+    "name": "ceva2",
     "version": "1.0.0",
     "private": true,
+    "homepage": "https://paul3ioan.github.io/ceva2",
     "dependencies": {
         "chokidar": "^3.5.3",
         "postcss-cli": "^9.1.0",
@@ -21,11 +23,13 @@
     "license": "MIT",
     "scripts": {
         "dev": "react-scripts start",
-        "buildNpm": "react-scripts build",
+        "build": "react-scripts build",
         "start": "npm watch:css && react-scripts start",
-        "build": "npm build:css && react-scripts build",
+        "buildTail": "npm build:css && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "build:css": "postcss ./src/index.css -o ./src/tailwind.css",
         "watch:css": "postcss ./src/index.css -o ./src/tailwind.css"
     },
