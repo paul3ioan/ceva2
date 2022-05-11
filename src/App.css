@@ -1,0 +1,132 @@
+
+.linearBg{
+  background: #1FA2FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.HomeCarousel {
+  margin-left: -630px;
+}
+.HomeCarousel {
+  height: 500px;
+  margin-left: -530px;
+  position: relative;
+  width: 100%;
+}
+
+.arrow-rapper {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  height: 80px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.arrow-rapper:hover {
+  background: white;
+  color: black;
+}
+
+.CarouselCard {
+  background-color: #2f3d7a;
+  border-radius: 30px;
+  height: 480px;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  width: 400px;
+}
+
+.image-wrapper {
+  border-radius: 16px;
+  height: 320px;
+  margin: 32px 40px 20px;
+  position: relative;
+  width: 320px;
+  z-index: 4;
+}
+
+.arrow{
+  right: -13rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .HomeCarousel {
+    margin-left: -700px ;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .HomeCarousel {
+    margin-left: -800px ;
+  }
+  .CarouselCard {
+    height: 373px;
+    margin-top: 50px;
+    width: 310px;
+}
+.CarouselCard .image-wrapper {
+  height: 248px;
+  margin: 32px 31px 20px;
+  width: 248px;
+}
+.arrow{
+  right: -8rem;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+.HomeCarousel {
+    margin-left: -510px ;
+}}
+
+@media screen and (max-width: 765px) {
+.HomeCarousel {
+    margin-left: -600px;
+}
+.CarouselCard {
+  height: 373px;
+  margin-top: 50px;
+  width: 310px;
+}
+.CarouselCard .image-wrapper {
+height: 248px;
+margin: 32px 31px 20px;
+width: 248px;
+}
+.arrow{
+  right: -8rem;
+}
+
+
+}
+@media screen and (min-width: 300px) and (max-width: 575px) {
+.HomeCarousel {
+    margin-left: -750px;
+}
+.CarouselCard .image-wrapper {
+  height: 230px;
+  margin: 32px 31px 20px;
+  width: 230px;
+  }
+  .arrow{
+    right: -6rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .HomeCarousel {
+    margin-left: -770px;
+  }
+}
