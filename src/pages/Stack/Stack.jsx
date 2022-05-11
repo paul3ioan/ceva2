@@ -32,7 +32,7 @@ const Stack = () => {
   useEffect(() =>{
     if(!blockchain.account)
     {
-      navigate('/');
+      navigate('/ceva2');
       return null;
     }
   },[blockchain.account])
