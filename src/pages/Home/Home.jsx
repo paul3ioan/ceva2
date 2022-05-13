@@ -23,7 +23,6 @@ const Home = ({ handleConnect }) => {
             </div>
           </div>
         </div>
-        {/* Second Section */}
       
       </div>
     </section>
