@@ -28,7 +28,7 @@ function App() {
   useEffect(() =>{
     if(!data.loading && data.walletOfOwner !== null)
     {
-      navigate('/ceva2/stack')
+      navigate('/stack')
     }
 
   },[data])
@@ -40,8 +40,8 @@ function App() {
     <main className="linearBg">
       <Header handleConnect={handleConnect} />
       <Routes>
-        <Route path="/ceva2" element={<Home handleConnect={handleConnect} />} />
-        <Route path="/ceva2/stack" element={<Stack />} />
+        <Route path="/" element={<Home handleConnect={handleConnect} />} />
+        <Route path="/stack" element={<Stack />} />
       </Routes>
     </main>
   );

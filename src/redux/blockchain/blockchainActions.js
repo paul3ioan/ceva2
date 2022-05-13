@@ -2,7 +2,7 @@
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
 // log
-import {mainContract,mainContractAbi, configNetWorkID, stakingContract, stakingContractAbi} from "../../absolutePathTesting";
+import {mainContract,mainContractAbi, configNetWorkID, stakingContract, stakingContractAbi} from "../../absolutePath";
 import { fetchData } from "../data/dataActions";
 
 const connectRequest = () => {

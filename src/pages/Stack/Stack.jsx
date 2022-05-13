@@ -6,7 +6,7 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/swiper.min.css";
 import 'swiper/modules/pagination/pagination.min.css';
 import 'swiper/modules/navigation/navigation.min.css'
-import {stakingContract} from './../../absolutePathTesting';
+import {stakingContract} from './../../absolutePath';
 import { fetchData } from "./../../redux/data/dataActions";
 
 import "./Stack.css";
@@ -32,7 +32,7 @@ const Stack = () => {
   useEffect(() =>{
     if(!blockchain.account)
     {
-      navigate('/ceva2');
+      navigate('/');
       return null;
     }
   },[blockchain.account])
