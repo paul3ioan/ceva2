@@ -81,13 +81,6 @@ const Slider = () => {
                     src={`images/${index}.png`}
                     alt=""
                   />
-                  <div className="lg:py-4 text-white">
-                    <h2 className=" font-medium text-2xl">Card Name</h2>
-                    <p className="text-white">
-                      Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit....
-                    </p>
-                  </div>
                 </div>
               </div>
             );

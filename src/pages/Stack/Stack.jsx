@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import { Pagination, Navigation } from "swiper";
-
+import { Link } from "react-router-dom";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import 'swiper/modules/pagination/pagination.min.css';
@@ -32,19 +32,24 @@ const Stack = () => {
   useEffect(() =>{
     if(!blockchain.account)
     {
-      navigate('/');
+      navigate('ceva2/');
       return null;
     }
   },[blockchain.account])
   const stake = (item) => {
-    console.log(item)
-    let gasLimit = 300000;
+    if(!data.approved)
+    {
+      alert("You need to be approved before making a stacking!");
+      return;
+    }
+    let gasLimit = 265000;
     let totalGasLimit = String(gasLimit);
 
     setWorking(true);
     blockchain.stackingContract.methods
       .stake([item])
       .send({
+        // gasLimit: totalGasLimit,
         to: stakingContract.CONTRACT_ADDRESS,
         from: blockchain.account,
       })
@@ -60,13 +65,14 @@ const Stack = () => {
     getData();
   };
   const unstake = (item) => {
-    let gasLimit = 300000;
+    let gasLimit = 266000;
     let totalGasLimit = String(gasLimit);
 
     setWorking(true);
     blockchain.stackingContract.methods
       .unstake([item])
       .send({
+        // gasLimit: totalGasLimit,
         to: stakingContract.CONTRACT_ADDRESS,
         from: blockchain.account,
       })
@@ -81,14 +87,22 @@ const Stack = () => {
       });
       getData();
   };
-  // data.walletOfOwner= [...data.walletOfOwner, 3333, 1000, 100, 3344, 5];
-  // make an array of ten empty elelements
-  // console.log(blockchain);
-  console.log(data);
+
   const { width } = GetWidth();
   return (
-    <div className="lg:h-screen h-full">
-      <section className="customContainer py-20">
+    <div className="lg:h-screen h-full" style={{minHeight: "100vh"}}>
+      <section className="customContainer py-20 pb-0">
+        <div style={{alignItems:"center", justifyContent:"space-between"}}className= "py-2 flex justify-between align-middle w-full xol">
+        <Link to ="/ceva2/">
+        <button style={{paddingTop: "10px", paddingBottom: "10px"}} className="bg-twitter sm:mr-4 mb-6 sm:mb-0 text-white px-10  font-medium  rounded-md border border-twitter hover:bg-transparent hover:text-twitter duration-500"
+          >
+            Back
+          </button>
+          </Link>
+          <p className="font-semibold px-10  text-black text-center flex">
+          Your Metamask wallet Address Connected with: {blockchain.account}
+        </p>
+        </div>
         {/* Slider Container */}
         <div>
           <Swiper
@@ -106,7 +120,7 @@ const Stack = () => {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            {data?.walletOfOwner && data?.walletOfOwner.length && data.walletOfOwner.map((item) => (
+            {data?.walletOfOwner && data?.walletOfOwner.length !== 0 && data.walletOfOwner.map((item) => (
               <SwiperSlide key={item}>
                 <div className="p-4 bg-white shadow-2xl rounded-md ">
                   <img
@@ -114,7 +128,7 @@ const Stack = () => {
                     alt="slide"
                     className="rounded-md"
                   />
-                  {item}
+                  TOKEN ID: {item}
                   <div className="grid grid-cols-2 gap-4 pt-4">
                     <button className="bg-twitter py-2 rounded-md font-medium w-full text-xl cursor-pointer"
                     onClick={(e) => {
@@ -141,7 +155,7 @@ const Stack = () => {
                 </div>
               </SwiperSlide>
             ))}
-             {data?.stakedNfts && data?.stakedNfts.length && data.stakedNfts.map((item) => (
+             {data?.stakedNfts && data?.stakedNfts.length!== 0 && data.stakedNfts.map((item) => (
               <SwiperSlide key={item}>
                 <div className="p-4 bg-white shadow-2xl rounded-md ">
                   <img
@@ -199,7 +213,7 @@ const Stack = () => {
           </div>
           <div className="w-full bg-primary rounded-md shadow-2xl p-6">
             <h2 className="text-3xl font-bold">$Reward Token</h2>
-            <p className="text-4xl font-semibold py-4">{data.pendingReward}</p>
+            <p className="text-4xl font-semibold py-4">{data?.pendingReward && data.pendingReward?.length < 18 ? "0" : data.pendingReward.substring(0, data.pendingReward.length - 18)}</p>
             <div class="w-full h-3"></div>
           </div>
         </div>

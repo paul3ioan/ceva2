@@ -5,6 +5,7 @@ const initialState = {
     contractBalance: null,
     stakingAmount: null,
     stakedNfts: null,
+    approved: false,
     error: false,
     errorMsg: "",
   };
@@ -26,6 +27,7 @@ const initialState = {
           pendingReward: action.payload.pendingReward,
           contractBalance: action.payload.contractBalance,
           stakingAmount: action.payload.stakingAmount,
+          approved: action.payload.approved,
           stakedNfts: action.payload.stakedNfts,
           error: false,
           errorMsg: "",

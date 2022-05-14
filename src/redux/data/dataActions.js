@@ -1,5 +1,6 @@
 // log
 import store from "../store";
+import {stakingContract} from "../../absolutePath"
 
 const fetchDataRequest = () => {
   return {
@@ -35,7 +36,7 @@ export const fetchData = (account) => {
         let pendingReward = await store
         .getState()
         .blockchain.stackingContract.methods.pendingTotalReward(account).call();
-      
+        let approved = await store.getState().blockchain.smartContract.methods.isApprovedForAll(account, stakingContract.CONTRACT_ADDRESS).call();
         let stakedNfts = await store
         .getState()
         .blockchain.stackingContract.methods.nftsStakedByUser(account).call();
@@ -45,6 +46,7 @@ export const fetchData = (account) => {
           walletOfOwner,
           pendingReward,
           stakedNfts,
+          approved,
           contractBalance,
           stakingAmount,
         })

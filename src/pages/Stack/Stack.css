@@ -4,3 +4,13 @@
 .mySwiper{
     background-color: transparent;
 }
+.xol{
+    flex-direction: row;
+}
+@media screen and (max-width:750px){
+    .xol{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
